@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Water Quality Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Water Quality Chl-a</h1>
+     <h3> Enter the following values to predict the Chl-a</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="enginesize" placeholder="Dissolved Total P(㎎/L)
+" required="required" />
+        <input type="text" name="cylinders" placeholder="Dissolved Total N(㎎/L)
+" required="required" />
+		<input type="text" name="Hydrogen ion conc" placeholder="Hydrogen ion con" required="required" />
+    <input type="text" name="DO (㎎/L)" placeholder="DO (㎎/L)" required="required" />
+    <input type="text" name="BOD(㎎/L)" placeholder="BOD(㎎/L)" required="required" />
+    <input type="text" name="Flowrate(m/s)" placeholder="Flowrate(m/s)" required="required" />
+    <input type="text" name="Fuel" placeholder="Temp.(℃)" required="required" />
+    <input type="text" name="Fuel2" placeholder="RainFall" required="required" />
+
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
